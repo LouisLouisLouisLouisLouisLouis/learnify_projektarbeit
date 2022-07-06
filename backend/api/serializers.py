@@ -4,10 +4,16 @@ from .models import Card
 
 
 class CardSerializer(serializers.ModelSerializer):
+    _id = serializers.ReadOnlyField(source='id')
     class Meta:
-        fields = (
-            'id',
+        model = Card
+        fields = [
+            '_id',
             'quest',
             'answer',
-        )
-        model = Card
+        ]
+        
+    def to_representation(self, instance):
+        repr = super().to_representation(instance)
+        repr['_id'] = str(repr['_id'])  
+        return repr
