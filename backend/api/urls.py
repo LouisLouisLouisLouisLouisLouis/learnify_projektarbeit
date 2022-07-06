@@ -7,6 +7,6 @@ urlpatterns = [
     #path('login/', views.login.as_view()), #menü screen?
     path('read/', views.ListCard.as_view()), #zeige die Karten --> /read
     path('add/', views.AddCard.as_view()), #Karte hinzufügen
-    path('delete/', views.DeleteCard.as_view()), 
-    path('update/', views.UpdateCard.as_view()),
+    path('delete/<int:pk>/', views.DeleteCard.as_view()), 
+    path('update/<int:pk>/', views.UpdateCard.as_view()),
 ]
