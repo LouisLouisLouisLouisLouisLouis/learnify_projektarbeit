@@ -35,7 +35,7 @@ class ListCard(generics.ListAPIView):
     serializer_class = CardSerializer
 
 #add --> UpdateAPIView --> PUT, PATCH
-class AddCard(generics.UpdateAPIView):
+class AddCard(generics.CreateAPIView):
     permission_classes = [] 
     queryset = Card.objects.all()
     serializer_class = CardSerializer
