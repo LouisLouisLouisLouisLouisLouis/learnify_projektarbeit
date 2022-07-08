@@ -4,9 +4,7 @@ from django.contrib.auth import authenticate
 from .models import Card
 
 
-#neue Karten 
-
-#Karten infos
+#Karten 
 class CardSerializer(serializers.ModelSerializer):
     _id = serializers.ReadOnlyField(source='id')    #id to _id
     class Meta:
