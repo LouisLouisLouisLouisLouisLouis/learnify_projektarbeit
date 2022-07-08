@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+APPEND_SLASH=False # um internal server Error 500 wegzubekommen
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,11 +49,18 @@ CORS_ORIGIN_WHITELIST = (           # cors --> Port 3000
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+#ROOT_URLCONF = 'drfauth.urls'
 
 REST_FRAMEWORK = {
+    #'DEFAULT_PERMISSION_CLASSES': [                #für DRF Session deaktiviert
+    #    'rest_framework.permissions.AllowAny',
+    #],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 
 MIDDLEWARE = [
