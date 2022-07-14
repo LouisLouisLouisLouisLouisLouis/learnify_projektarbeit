@@ -7,15 +7,11 @@ from rest_framework.response import Response
 from .models import Card
 from .serializers import CardSerializer
 from . import serializers
-#from rest_framework.permissions import IsAdminUser       ----> falls mit login
-
 
 
 
 #login --> APIView
 class LoginView(views.APIView):
-    # This view should be accessible also for unauthenticated users.
-    #permission_classes = (permissions.AllowAny,)
     permission_classes = []
     authentication_classes = []
 
@@ -34,7 +30,7 @@ class ListCard(generics.ListAPIView):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
 
-#add --> UpdateAPIView --> PUT, PATCH
+#add --> UpdateAPIView
 class AddCard(generics.CreateAPIView):
     permission_classes = [] 
     queryset = Card.objects.all()
