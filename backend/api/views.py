@@ -1,14 +1,10 @@
-from django.contrib.auth import login, logout
-from rest_framework import status
+from django.contrib.auth import login
 from rest_framework import generics
-from rest_framework import permissions
 from rest_framework import views
 from rest_framework.response import Response
 from .models import Card
 from .serializers import CardSerializer
 from . import serializers
-
-
 
 #login --> APIView
 class LoginView(views.APIView):

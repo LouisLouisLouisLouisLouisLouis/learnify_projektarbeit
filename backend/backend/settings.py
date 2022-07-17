@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+# username: louis
+# password: Django_2022
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,22 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',  # cors
+    'corsheaders',  
     'api',
 ]
 
-CORS_ORIGIN_WHITELIST = (           # cors --> Port 3000
+CORS_ORIGIN_WHITELIST = (          
     'http://localhost:3000',
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-#ROOT_URLCONF = 'drfauth.urls'
-
 REST_FRAMEWORK = {
-    #'DEFAULT_PERMISSION_CLASSES': [                #für DRF Session deaktiviert
-    #    'rest_framework.permissions.AllowAny',
-    #],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
     ],
